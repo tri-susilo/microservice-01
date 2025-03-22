@@ -11,9 +11,8 @@ set -e
 # Definisikan variabel
 IMAGE_NAME="item-app"
 IMAGE_TAG="v1"
-GITHUB_USER="tri-susilo"  # Ganti dengan GitHub username Anda
-GITHUB_REPO="REPO_NAME" # Ganti dengan nama repository GitHub Anda
-GITHUB_TOKEN="YOUR_GITHUB_TOKEN" # Gunakan Personal Access Token (PAT)
+GITHUB_USER="tri-susilo"
+GITHUB_REPO="microservice-01"
 GITHUB_PACKAGE="ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_TAG"
 
 # 1. Build Docker Image
