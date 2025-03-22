@@ -11,7 +11,7 @@ set -e
 # Definisikan variabel
 IMAGE_NAME="item-app"
 IMAGE_TAG="v1"
-GITHUB_USER="USERNAME"  # Ganti dengan GitHub username Anda
+GITHUB_USER="tri-susilo"  # Ganti dengan GitHub username Anda
 GITHUB_REPO="REPO_NAME" # Ganti dengan nama repository GitHub Anda
 GITHUB_TOKEN="YOUR_GITHUB_TOKEN" # Gunakan Personal Access Token (PAT)
 GITHUB_PACKAGE="ghcr.io/$GITHUB_USER/$IMAGE_NAME:$IMAGE_TAG"
