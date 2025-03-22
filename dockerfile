@@ -31,15 +31,13 @@ COPY package*.json ./
 # Install only production dependencies
 RUN npm install --production --unsafe-perm
 
-# Copy built application from the builder stage
+# Copy all necessary application files from the builder stage
+# This ensures we include the routes directory and any other required directories
 COPY --from=builder /app/bin ./bin
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/routes ./routes
 COPY --from=builder /app/views ./views
 COPY --from=builder /app/app.js ./
-
-# If your build process generates other necessary files/folders, copy them as well
-# For example, if the build creates a 'dist' folder:
-# COPY --from=builder /app/dist ./dist
 
 # Expose port 8080
 EXPOSE 8080
