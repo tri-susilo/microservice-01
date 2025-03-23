@@ -1,27 +1,27 @@
-version: '3'
-
 services:
-  item-app:
-    image: item-app
-    container_name: item-app
-    restart: always
+  item-app:                    
+    image: item-app:v1          # menggunakan image item-app:v1
+    container_name: item-app    # memberi nama container dengan nama "item-app"
+    restart: always             # apabila container error/stop akan otomatis restart
     depends_on:
-      - item-db
+      - item-db                 # define bahwa service ini akan dijalan setelah service "item-db" sudah berjalan
     ports:
-      - "80:8080"
+      - "80:8080"               # expose port 8080 container ke port 80 di docker host
     networks:
-      - app-network
-  item-db:
-    image: mongo:3
-    container_name: item-db
-    restart: always
+      - app-network             # connect ke network "app-network"
+  item-db:                      # define service database
+    image: mongo:3              # menggunakan image dari mongodb versi 3
+    container_name: item-db     # memberi nama container dengan "item-db"
+    restart: always             # apabila container error/stop akan otomatis restart
     volumes:
-      - app-db:/data/db
+      - app-db:/data/db         # mount docker volume app-db ke dalam container dengan path /data/db
     networks:
-      - app-network
+      - app-network             # connect ke network "app-network"
 
+# Define docker volume untuk database supaya data tidak hilang saat container direstart 
 volumes:
   app-db:
 
+# Define docker Network, sehingga item-app dan item-db dapat terhubung
 networks:
   app-network:
